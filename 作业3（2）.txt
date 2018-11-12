@@ -1,0 +1,42 @@
+ create table gebiao(
+    -> ID varchar(20) unique not null,
+    -> name varchar(20) not null,
+    -> price decimal(10,2) not null default 0.00,
+    -> collect char default '1');
+Query OK, 0 rows affected (0.58 sec)
+
+在mysql workbench 中插入数据
+
+ insert into gebiao(ID,name,price)values('尼亚','玩具',50.6);
+Query OK, 1 row affected (0.19 sec)
+
+
+select * from gebiao;
++-----------+------+-------+---------+
+| ID        | name | price | collect |
++-----------+------+-------+---------+
+| L.Lawliet | 果冻 | 12.00 | 1       |
+| 夜神月    | 文具 | 50.45 | 1       |
+| 尼亚      | 玩具 | 50.60 | 1       |
+| 流克      | 苹果 | 37.56 | 1       |
+| 阿渡      | 拼图 | 97.95 | 1       |
++-----------+------+-------+---------+
+5 rows in set (0.00 sec)
+
+
+ update gebiao set gebiao.collect='0' where gebiao.ID='夜神月';
+Query OK, 1 row affected (0.20 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+
+ select * from gebiao;
++-----------+------+-------+---------+
+| ID        | name | price | collect |
++-----------+------+-------+---------+
+| L.Lawliet | 果冻 | 12.00 | 1       |
+| 夜神月    | 文具 | 50.45 | 0       |
+| 尼亚      | 玩具 | 50.60 | 1       |
+| 流克      | 苹果 | 37.56 | 1       |
+| 阿渡      | 拼图 | 97.95 | 1       |
++-----------+------+-------+---------+
+5 rows in set (0.00 sec)
